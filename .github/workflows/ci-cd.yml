@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build containers
+        run: docker-compose build
+
+      - name: Run containers
+        run: docker-compose up -d
+
+      - name: Wait
+        run: sleep 10
+
+      - name: Check PHP syntax
+        run: find app -name "*.php" -exec php -l {} \;
+
+      - name: Test HTTP
+        run: curl -f http://localhost
