@@ -7,7 +7,6 @@
 <p>- 📝 Guest Book</p>
 <p>- 🗄️ MySQL database  </p>
 <p>- 🐳 Docker containerization</p>
-<p>- 🔄 Automatic deployment</p>
 
 <h2> Description</h2>
 
