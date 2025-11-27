@@ -1,0 +1,6 @@
+.env
+mysql/mysql_data
+*.log
+vendor/
+node_modules/
+.vscode/

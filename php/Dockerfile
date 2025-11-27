@@ -4,12 +4,12 @@ RUN apk add --no-cache $PHPIZE_DEPS \
     && apk del $PHPIZE_DEPS
 
 WORKDIR /var/www/html
-COPY php/app .
+COPY app/ .
 
-FROM crazymax/php:8.3-fpm-alpine
+FROM php:8.3-fpm-alpine
 COPY --from=builder /var/www/html /var/www/html
-COPY --from=builder /usr/local/lib/php/extensions/no-debug-non-zts-* /usr/local/lib/php/extensions/no-debug-non-zts-*
-COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.debug
+COPY --from=builder /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 
 RUN rm -rf /var/cache/apk* /tmp/*
 
