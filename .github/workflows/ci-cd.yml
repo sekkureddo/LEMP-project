@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, fix ]
   pull_request:
+    branches: [ main, fix ]
 
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
         run: sleep 10
 
       - name: Check PHP syntax
-        run: find app -name "*.php" -exec php -l {} \;
+        run: find php/app -name "*.php" -exec php -l {} \;
 
       - name: Test HTTP
         run: curl -f http://localhost
