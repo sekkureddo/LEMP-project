@@ -36,12 +36,23 @@ In general, **nginx** receives the request from the client, processes it, sends 
 
 <h2> Installing</h2>
 
-It's simple - download, and then write command:
+It's simple - download, and then write commands:
 
 ```
-docker compose up --build -d
+git clone ...
+cd project
+cp .env.example .env
+docker compose up -d
 ```
-And run to check http://localhost!   😊
+If you want to change the default mysql variables, then add the following command before the docker command:
+
+```
+nano .env
+```
+
+And change your variables.
+
+Then run to check http://localhost!   😊
 
 ## Other
 
@@ -52,7 +63,6 @@ It is important to note that the size of the entire image turned out to be only 
 
 Аnd for correct operation, variables were added so that no one else could access them.
 
-<img width="774" height="370" alt="Image" src="https://github.com/user-attachments/assets/20784621-5e6f-4a56-9f31-697bad60a721" />
 
 <h2>Author</h2>
 
